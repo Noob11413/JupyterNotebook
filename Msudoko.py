@@ -57,13 +57,11 @@ def draw_sudoku_grid():
                 screen.blit(text, (x, y))
 
 run = True
-solver = solve_sudoku(sudoku_grid)  # Create the solver generator
+solver = solve_sudoku(sudoku_grid)
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-
-    # Automatically solve the Sudoku step by step
     try:
         sudoku_grid = next(solver)  # Get the next step in solving
     except StopIteration:
